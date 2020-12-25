@@ -2,6 +2,7 @@ const express = require("express");
 const app = express()
 const mongoose = require("mongoose")
 const cors = require('cors')
+require('dotenv').config();
 const workout = require('./routes/workout');
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/mygym', { useUnifiedTopology: true, useNewUrlParser: true})
@@ -13,4 +14,4 @@ app.use(express.urlencoded({extended:false}));
 app.use(cors({origin: true, credentials: true}))
 app.use('/', workout);
 
-const server = app.listen(3456, () => console.log("port 3456"));
+const server = app.listen(process.env.PORT, () => console.log("port " + process.env.PORT));
