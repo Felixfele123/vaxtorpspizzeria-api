@@ -2,7 +2,6 @@ const express = require("express");
 const app = express()
 const mongoose = require("mongoose")
 const cors = require('cors')
-require('dotenv').config();
 const workout = require('./routes/workout');
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/mygym', { useUnifiedTopology: true, useNewUrlParser: true})

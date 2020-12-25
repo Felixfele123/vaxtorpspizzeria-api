@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "heroku-cli": "^7.0.9"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "heroku-cli": "^7.0.9",
+    "mongoose": "^5.11.8"
   }
 }
