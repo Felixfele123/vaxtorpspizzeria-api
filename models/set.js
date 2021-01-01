@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
 const workoutSchema = new mongoose.Schema({
-    name: String,
-    excirceses: Array
+    reps: {
+        type: Number,
+        required: false,
+      },
+    weight: {
+        type: Number,
+      }
 })
 const Workout = mongoose.model('Workout', workoutSchema);
 
