@@ -4,11 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const userID = "5fe79e833bd9731ea5f12cfc"
+
     try {
-        const schema = await Schema.find({ _id: userID});
+        const schema = await Schema.find();
         //const workout = await Workout.find({ schemaID: ObjectId(schema._id)});
-        console.log(userID)
         res.send(schema);
     } catch (error) {
         console.log(error)
@@ -16,17 +15,17 @@ router.get('/', async (req, res) => {
     }
 });
 router.put('/:id', async (req, res) => {
-    console.log(req.params.id)
     const schema = await Schema.findByIdAndUpdate(req.params.id,
         {   
           workouts: req.body.workouts,
         }, { new: true, useFindAndModify: false });
     
       if (!schema) return res.status(404).send('The customer with the given ID was not found.');
-      
+      console.log("schema: " + schema)
       res.send(schema);
 });
 router.post('/', async (req, res) => {
+    console.log("mounte")
     try {
         const schema = new Schema(   {
             workouts:[
@@ -102,7 +101,6 @@ router.post('/', async (req, res) => {
         });
         const result = await schema.save()
         res.send(result)
-        console.log(result)
     } catch (error) {
         return res.status(400).send({
             message: error.message
