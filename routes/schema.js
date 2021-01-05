@@ -24,6 +24,8 @@ router.put('/:id', async (req, res) => {
       console.log("schema: " + schema)
       res.send(schema);
 });
+
+
 router.post('/', async (req, res) => {
     console.log("mounte")
     try {
